@@ -3,17 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <title>Youssef Mahmoud - Flutter Developer</title>
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
 </head>
 <body>
 
     <!-- Navigation Bar -->
-    <nav>
-        <h2>Navigation</h2>
-        <a href="#about">About</a> |
-        <a href="#skills">Skills</a> |
-        <a href="#projects">Projects</a> |
-        <a href="#contact">Contact</a>
-    </nav>
+    <header>
+        <nav>
+            <h2>Navigation</h2>
+            <a href="#about">About</a> |
+            <a href="#skills">Skills</a> |
+            <a href="#projects">Projects</a> |
+            <a href="#resume">Resume</a> |
+            <a href="#timeline">Timeline</a> |
+            <a href="#achievements">Achievements</a> |
+            <a href="#languages">Languages</a> |
+            <a href="#contact">Contact</a>
+        </nav>
+    </header>
     <hr>
 
     <!-- Main Content -->
@@ -23,9 +34,16 @@
         <section id="about">
             <h1>Youssef Mahmoud Eid</h1>
             <h2>Flutter Developer</h2>
-            <!-- If you want to use a photo, put it in the same folder as the HTML file and name it "my_photo.jpg" -->
             <img src="my photo.jpg" alt="Youssef Mahmoud Profile Picture" width="150" height="150">
-            <p>I am a 21-year-old Flutter developer and Computer Science student. I love building high-performance, responsive mobile apps. I'm also passionate about coding, football, and games.</p>
+            <p>
+                I'm <mark>Youssef Mahmoud</mark>, a dedicated <mark>Flutter developer</mark> and Computer Science undergraduate with a passion for building responsive, user-centric mobile applications. 
+                I thrive on solving complex problems through clean architecture and efficient code.
+            </p>
+
+            <details>
+                <summary>More about me</summary>
+                <p>I’m currently studying at Fayoum University and actively contributing to open-source Flutter projects. I competed in ECPC (Egyptian Collegiate Programming Contest) in 2023 and 2024, sharpening my algorithmic and team-based problem-solving skills.</p>
+            </details>
         </section>
         <hr>
 
@@ -40,7 +58,7 @@
                 <li>Firebase Integration</li>
                 <li>Local Storage (Hive, Shared Preferences)</li>
                 <li>MVVM & Clean Architecture</li>
-                <li>State Management (Bloc, Cubit, Provider)</li>
+                <li>State Management (Bloc, Cubit)</li>
                 <li>Git & GitHub</li>
                 <li>Responsive and Adaptive UI</li>
             </ul>
@@ -51,32 +69,66 @@
         <section id="projects">
             <h2>Projects</h2>
 
-            <h3>1. Book App</h3>
-            <p>
-                A modern book browsing app with:
-                <ul>
-                    <li>Clean dark-themed UI</li>
-                    <li>Google Books API integration</li>
-                    <li>MVVM Architecture with Bloc</li>
-                </ul>
-            </p>
+            <h3>📘 Book App</h3>
+            <ul>
+                <li>A feature-rich Flutter app integrated with Google Books API</li>
+                <li>MVVM Architecture with Bloc, GetIt</li>
+                <li>Firebase Auth, onboarding, dark/light mode, smart search</li>
+            </ul>
             <p><a href="https://github.com/Youssef-Ma7moud-Eid/Book_App" target="_blank">View Book App on GitHub</a></p>
 
-            <h3>2. Food E-Commerce App</h3>
-            <p>
-                A Flutter app to explore meals and mark favorites:
-                <ul>
-                    <li>Uses API and Firebase</li>
-                    <li>User-friendly meal navigation</li>
-                </ul>
-            </p>
+            <h3>🍔 Food E-Commerce App</h3>
+            <ul>
+                <li>Splash, onboarding, and Firebase Auth (login/signup/reset)</li>
+                <li>Real-time meal browsing and favorites</li>
+                <li>Cart management with basic payment logic</li>
+            </ul>
             <p><a href="https://github.com/Youssef-Ma7moud-Eid/Food_app" target="_blank">View Food App on GitHub</a></p>
+        </section>
+        <hr>
+
+        <!-- Resume Section -->
+        <section id="resume">
+            <h2>📄 Resume</h2>
+            <p><a href="Youssef-Mahmoud-Flutter-developer.pdf" download><button>Download My CV</button></a></p>
+        </section>
+        <hr>
+
+        <!-- Timeline Section -->
+        <section id="timeline">
+            <h2>📅 Timeline</h2>
+            <ul>
+                <li><strong>2025</strong>: Released responsive Flutter dashboard</li>
+                <li><strong>2024</strong>: ECPC contest, completed Food App</li>
+                <li><strong>2022</strong>: Started Computer Science at Fayoum University</li>
+            </ul>
+        </section>
+        <hr>
+
+        <!-- Achievements Section -->
+        <section id="achievements">
+            <h2>🏆 Achievements</h2>
+            <ul>
+                <li>Top 5 in University Programming Contest</li>
+                <li>Published multiple open-source Flutter apps</li>
+                <li>Participated in ECPC 2023 and 2024</li>
+            </ul>
+        </section>
+        <hr>
+
+        <!-- Languages Section -->
+        <section id="languages">
+            <h2>🌍 Languages</h2>
+            <ul>
+                <li>Arabic – Native</li>
+                <li>English – Intermediate</li>
+            </ul>
         </section>
         <hr>
 
         <!-- Contact Section -->
         <section id="contact">
-            <h2>Contact Me</h2>
+            <h2>📬 Contact Me</h2>
 
             <!-- Email Form -->
             <form action="mailto:ym1977@fayoum.edu.eg" method="POST" enctype="text/plain">
@@ -92,13 +144,14 @@
                 <button type="submit">Send</button>
             </form>
 
-            <!-- Links -->
+            <!-- Contact Links -->
             <p>
                 <strong>Email:</strong> <a href="mailto:ym1977@fayoum.edu.eg">ym1977@fayoum.edu.eg</a><br>
                 <strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/youssef-mahmoud-eid-attia-067433272/" target="_blank">My LinkedIn</a><br>
                 <strong>GitHub:</strong> <a href="https://github.com/Youssef-Ma7moud-Eid" target="_blank">My GitHub</a>
             </p>
         </section>
+
     </main>
 
 </body>
