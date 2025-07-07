@@ -1,158 +1,377 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Youssef Mahmoud - Flutter Developer</title>
-    <style>
-        html {
-            scroll-behavior: smooth;
-        }
-    </style>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Youssef Mahmoud - Flutter Developer</title>
+<style>
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #fff;
+    background-image: url("my photo.jpg");
+    background-size: cover;
+    background-position: top center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    backdrop-filter: brightness(0.9);
+    min-height: 100vh;
+  }
+
+  nav {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 20px 40px;
+    background-color: rgba(0, 0, 0, 0.75);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    backdrop-filter: blur(10px);
+  }
+
+  nav a {
+    text-decoration: none;
+    color: #ccc;
+    font-weight: 600;
+    letter-spacing: 1px;
+    padding: 8px 12px;
+    border-radius: 4px;
+    transition: background-color 0.3s, color 0.3s;
+  }
+
+  nav a:hover,
+  nav a.active {
+    background-color: rgba(0, 170, 255, 0.2);
+    color: #00aaff;
+  }
+
+  /* Hero section styling */
+  .hero {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    padding: 80px 20px;
+    min-height: 100vh;
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(4px);
+  }
+
+  .hero h1 {
+    font-size: 3.5em;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 10px;
+    animation: fadeIn 1.2s ease;
+  }
+
+  .hero h2 {
+    font-size: 2em;
+    font-weight: 400;
+    margin: 10px 0;
+    color: #00aaff;
+    animation: fadeIn 1.5s ease;
+  }
+
+  .highlight {
+    display: inline-block;
+    background-color: #5100ff;
+    color: #fff;
+    padding: 8px 15px;
+    font-weight: bold;
+    margin-top: 15px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(81, 0, 255, 0.4);
+    font-size: 1.1em;
+    animation: fadeIn 2s ease;
+  }
+
+  /* Sections styling */
+  section {
+    padding: 60px 5%;
+    background-color: rgba(0, 0, 0, 0.75);
+    margin: 20px auto;
+    max-width: 1200px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+    animation: fadeIn 1.5s ease;
+  }
+
+  section h2 {
+    margin-bottom: 20px;
+    color: #00ccff;
+    font-size: 2em;
+    border-bottom: 2px solid #00ccff;
+    display: inline-block;
+    padding-bottom: 8px;
+  }
+
+  /* List styles */
+  ul {
+    list-style-type: square;
+    padding-left: 20px;
+    line-height: 1.6;
+  }
+
+  /* Mark element styling */
+  mark {
+    background-color: #00aaff;
+    color: #000;
+    padding: 2px 6px;
+    border-radius: 4px;
+  }
+
+  /* Form styling */
+  form {
+    display: flex;
+    flex-direction: column;
+  }
+
+  label {
+    margin-bottom: 6px;
+    font-weight: 600;
+  }
+
+  input, textarea {
+    width: 100%;
+    padding: 12px 14px;
+    margin-bottom: 15px;
+    border: none;
+    border-radius: 6px;
+    background-color: rgba(255,255,255,0.1);
+    color: #fff;
+    font-size: 1em;
+    transition: background-color 0.3s;
+  }
+
+  input:focus, textarea:focus {
+    outline: none;
+    background-color: rgba(255,255,255,0.2);
+  }
+
+  button {
+    padding: 14px;
+    border: none;
+    border-radius: 6px;
+    background-color: #00aaff;
+    color: #fff;
+    font-weight: 700;
+    cursor: pointer;
+    font-size: 1.1em;
+    transition: background-color 0.3s, transform 0.2s;
+  }
+
+  button:hover {
+    background-color: #0088cc;
+    transform: translateY(-2px);
+  }
+
+  /* Contact info styles */
+ .contact-info {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 20px;
+  }
+
+  .contact-info a {
+    color: #00ccff;
+    text-decoration: none;
+    font-weight: 500;
+  }
+
+  .contact-info a:hover {
+    text-decoration: underline;
+    color: #00aaff;
+  }
+
+  /* Footer styling */
+  .footer {
+    text-align: center;
+    font-size: 14px;
+    color: #999;
+    padding: 30px 20px;
+    background-color: rgba(0, 0, 0, 0.6);
+    margin-top: 40px;
+  }
+
+  /* Animations */
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* Responsive adjustments */
+  @media(max-width: 768px){
+    nav {
+      flex-direction: column;
+      align-items: center;
+      gap: 15px;
+    }
+    .hero h1 {
+      font-size: 2.5em;
+    }
+    .highlight {
+      font-size: 1em;
+      padding: 6px 12px;
+    }
+  }
+</style>
 </head>
 <body>
 
-    <!-- Navigation Bar -->
-    <header>
-        <nav>
-            <h2>Navigation</h2>
-            <a href="#about">About</a> |
-            <a href="#skills">Skills</a> |
-            <a href="#projects">Projects</a> |
-            <a href="#resume">Resume</a> |
-            <a href="#timeline">Timeline</a> |
-            <a href="#achievements">Achievements</a> |
-            <a href="#languages">Languages</a> |
-            <a href="#contact">Contact</a>
-        </nav>
-    </header>
-    <hr>
+<!-- Navigation -->
+<nav>
+  <a href="#about" class="active">About</a>
+  <a href="#skills">Skills</a>
+  <a href="#projects">Projects</a>
+  <a href="#resume">Resume</a>
+  <a href="#timeline">Timeline</a>
+  <a href="#achievements">Achievements</a>
+  <a href="#languages">Languages</a>
+  <a href="#contact">Contact</a>
+</nav>
 
-    <!-- Main Content -->
-    <main>
+<!-- Hero Section -->
+<section class="hero">
+  <h1>I'm Youssef Mahmoud Eid</h1>
+  <h2>Flutter Developer</h2>
+  <div class="highlight">Professional Mobile App Creator</div>
+  <p>I’m Youssef Mahmoud, a dedicated Flutter developer and Computer Science undergraduate. I build responsive, user-centric mobile apps and thrive on solving problems with clean, efficient code.</p>
+</section>
 
-        <!-- About Section -->
-        <section id="about">
-            <h1>Youssef Mahmoud Eid</h1>
-            <h2>Flutter Developer</h2>
-            <img src="my photo.jpg" alt="Youssef Mahmoud Profile Picture" width="150" height="150">
-            <p>
-                I'm <mark>Youssef Mahmoud</mark>, a dedicated <mark>Flutter developer</mark> and Computer Science undergraduate with a passion for building responsive, user-centric mobile applications. 
-                I thrive on solving complex problems through clean architecture and efficient code.
-            </p>
+<!-- About Me -->
+<section id="about">
+  <h2>About Me</h2>
+  <p>I’m currently studying at Fayoum University and actively contributing to open-source Flutter projects. I competed in ECPC (Egyptian Collegiate Programming Contest) in 2023 and 2024, sharpening my algorithmic and team-based problem-solving skills.</p>
+</section>
 
-            <details>
-                <summary>More about me</summary>
-                <p>I’m currently studying at Fayoum University and actively contributing to open-source Flutter projects. I competed in ECPC (Egyptian Collegiate Programming Contest) in 2023 and 2024, sharpening my algorithmic and team-based problem-solving skills.</p>
-            </details>
-        </section>
-        <hr>
+<!-- Skills -->
+<section id="skills">
+  <h2>Skills</h2>
+  <ul>
+    <li>Dart, C, C++, Python</li>
+    <li>Object-Oriented Programming, Data Structures</li>
+    <li>Flutter Framework</li>
+    <li>RESTful APIs</li>
+    <li>Firebase Integration</li>
+    <li>Local Storage (Hive, Shared Preferences)</li>
+    <li>MVVM & Clean Architecture</li>
+    <li>State Management (Bloc, Cubit)</li>
+    <li>Git & GitHub</li>
+    <li>Responsive and Adaptive UI</li>
+  </ul>
+</section>
 
-        <!-- Skills Section -->
-        <section id="skills">
-            <h2>Skills</h2>
-            <ul>
-                <li>Dart, C, C++, Python</li>
-                <li>Object-Oriented Programming, Data Structures</li>
-                <li>Flutter Framework</li>
-                <li>RESTful APIs</li>
-                <li>Firebase Integration</li>
-                <li>Local Storage (Hive, Shared Preferences)</li>
-                <li>MVVM & Clean Architecture</li>
-                <li>State Management (Bloc, Cubit)</li>
-                <li>Git & GitHub</li>
-                <li>Responsive and Adaptive UI</li>
-            </ul>
-        </section>
-        <hr>
+<!-- Projects -->
+<section id="projects">
+  <h2>Projects</h2>
+  <h3>📘 Book App</h3>
+  <ul>
+    <li>A feature-rich Flutter app integrated with Google Books API</li>
+    <li>MVVM Architecture with Bloc, GetIt</li>
+    <li>Firebase Auth, onboarding, dark/light mode, smart search</li>
+  </ul>
+  <p><a href="https://github.com/Youssef-Ma7moud-Eid/Book_App" target="_blank">View Book App on GitHub</a></p>
 
-        <!-- Projects Section -->
-        <section id="projects">
-            <h2>Projects</h2>
+  <h3>🍔 Food E-Commerce App</h3>
+  <ul>
+    <li>Splash, onboarding, and Firebase Auth (login/signup/reset)</li>
+    <li>Real-time meal browsing and favorites</li>
+    <li>Cart management with basic payment logic</li>
+  </ul>
+  <p><a href="https://github.com/Youssef-Ma7moud-Eid/Food_app" target="_blank">View Food App on GitHub</a></p>
+</section>
 
-            <h3>📘 Book App</h3>
-            <ul>
-                <li>A feature-rich Flutter app integrated with Google Books API</li>
-                <li>MVVM Architecture with Bloc, GetIt</li>
-                <li>Firebase Auth, onboarding, dark/light mode, smart search</li>
-            </ul>
-            <p><a href="https://github.com/Youssef-Ma7moud-Eid/Book_App" target="_blank">View Book App on GitHub</a></p>
+<!-- Resume -->
+<section id="resume">
+  <h2>📄 Resume</h2>
+  <p><a href="Youssef-Mahmoud-Flutter-developer.pdf" download><button>Download My CV</button></a></p>
+</section>
 
-            <h3>🍔 Food E-Commerce App</h3>
-            <ul>
-                <li>Splash, onboarding, and Firebase Auth (login/signup/reset)</li>
-                <li>Real-time meal browsing and favorites</li>
-                <li>Cart management with basic payment logic</li>
-            </ul>
-            <p><a href="https://github.com/Youssef-Ma7moud-Eid/Food_app" target="_blank">View Food App on GitHub</a></p>
-        </section>
-        <hr>
+<!-- Timeline -->
+<section id="timeline">
+  <h2>📅 Timeline</h2>
+  <ul>
+    <li><strong>2025</strong>: Released responsive Flutter dashboard</li>
+    <li><strong>2024</strong>: ECPC contest, completed Food App</li>
+    <li><strong>2022</strong>: Started Computer Science at Fayoum University</li>
+  </ul>
+</section>
 
-        <!-- Resume Section -->
-        <section id="resume">
-            <h2>📄 Resume</h2>
-            <p><a href="Youssef-Mahmoud-Flutter-developer.pdf" download><button>Download My CV</button></a></p>
-        </section>
-        <hr>
+<!-- Achievements -->
+<section id="achievements">
+  <h2>🏆 Achievements</h2>
+  <ul>
+    <li>Top 5 in University Programming Contest</li>
+    <li>Published multiple open-source Flutter apps</li>
+    <li>Participated in ECPC 2023 and 2024</li>
+  </ul>
+</section>
 
-        <!-- Timeline Section -->
-        <section id="timeline">
-            <h2>📅 Timeline</h2>
-            <ul>
-                <li><strong>2025</strong>: Released responsive Flutter dashboard</li>
-                <li><strong>2024</strong>: ECPC contest, completed Food App</li>
-                <li><strong>2022</strong>: Started Computer Science at Fayoum University</li>
-            </ul>
-        </section>
-        <hr>
+<!-- Languages -->
+<section id="languages">
+  <h2>🌍 Languages</h2>
+  <ul>
+    <li>Arabic – Native</li>
+    <li>English – Intermediate</li>
+  </ul>
+</section>
 
-        <!-- Achievements Section -->
-        <section id="achievements">
-            <h2>🏆 Achievements</h2>
-            <ul>
-                <li>Top 5 in University Programming Contest</li>
-                <li>Published multiple open-source Flutter apps</li>
-                <li>Participated in ECPC 2023 and 2024</li>
-            </ul>
-        </section>
-        <hr>
+<!-- Contact -->
+<section id="contact">
+  <h2 style="text-align: center; font-size: 2.5em; margin-bottom: 40px; text-shadow: 0 0 10px #00ccff;">
+    📬 Get in Touch
+  </h2>
+  <div style="display: flex; flex-wrap: wrap; gap: 30px; justify-content: center; align-items: flex-start;">
+    <!-- Contact Form -->
+    <form action="mailto:ym1977@fayoum.edu.eg" method="POST" enctype="text/plain"
+          style="flex: 1 1 300px; max-width: 500px; background-color: rgba(0, 0, 0, 0.6); padding: 30px; border-radius: 12px; box-shadow: 0 0 20px rgba(0, 170, 255, 0.2);">
+      <label for="name">Your Name:</label>
+      <input type="text" id="name" name="name" placeholder="Enter your name" required />
 
-        <!-- Languages Section -->
-        <section id="languages">
-            <h2>🌍 Languages</h2>
-            <ul>
-                <li>Arabic – Native</li>
-                <li>English – Intermediate</li>
-            </ul>
-        </section>
-        <hr>
+      <label for="email">Your Email:</label>
+      <input type="email" id="email" name="email" placeholder="Enter your email" required />
 
-        <!-- Contact Section -->
-        <section id="contact">
-            <h2>📬 Contact Me</h2>
+      <label for="message">Message:</label>
+      <textarea id="message" name="message" rows="5" placeholder="Write your message..." required></textarea>
 
-            <!-- Email Form -->
-            <form action="mailto:ym1977@fayoum.edu.eg" method="POST" enctype="text/plain">
-                <label for="name">Your Name:</label><br>
-                <input type="text" id="name" name="name" required><br><br>
+      <button type="submit">📨 Send Message</button>
+    </form>
+    <!-- Contact Info -->
+    <div style="flex: 1 1 300px; max-width: 400px; background-color: rgba(0, 0, 0, 0.6); padding: 30px; border-radius: 12px; box-shadow: 0 0 20px rgba(0, 170, 255, 0.2); display: flex; flex-direction: column; gap:15px;">
+      <p><strong>📧 Email:</strong><br>
+        <a href="mailto:ym1977@fayoum.edu.eg" style="color: #00ccff;">ym1977@fayoum.edu.eg</a>
+      </p>
+      <p><strong>💼 LinkedIn:</strong><br>
+        <a href="https://www.linkedin.com/in/youssef-mahmoud-eid-attia-067433272/" target="_blank" style="color: #00ccff;">
+          linkedin.com/in/youssef-mahmoud-eid-attia
+        </a>
+      </p>
+      <p><strong>🐱 GitHub:</strong><br>
+        <a href="https://github.com/Youssef-Ma7moud-Eid" target="_blank" style="color: #00ccff;">
+          github.com/Youssef-Ma7moud-Eid
+        </a>
+      </p>
+    </div>
+  </div>
+</section>
 
-                <label for="email">Your Email:</label><br>
-                <input type="email" id="email" name="email" required><br><br>
-
-                <label for="message">Message:</label><br>
-                <textarea id="message" name="message" rows="5" cols="30" required></textarea><br><br>
-
-                <button type="submit">Send</button>
-            </form>
-
-            <!-- Contact Links -->
-            <p>
-                <strong>Email:</strong> <a href="mailto:ym1977@fayoum.edu.eg">ym1977@fayoum.edu.eg</a><br>
-                <strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/youssef-mahmoud-eid-attia-067433272/" target="_blank">My LinkedIn</a><br>
-                <strong>GitHub:</strong> <a href="https://github.com/Youssef-Ma7moud-Eid" target="_blank">My GitHub</a>
-            </p>
-        </section>
-
-    </main>
-
+<!-- Footer -->
+<div class="footer">
+  PORTFOLIO 2025 &copy; Youssef Mahmoud
+</div>
 </body>
 </html>
