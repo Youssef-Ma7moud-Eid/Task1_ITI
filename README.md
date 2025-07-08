@@ -17,7 +17,7 @@ This site showcases my **skills**, **projects**, and **experience** as a **Flutt
 ### 🎬 Demo Video
 
 Want to see it in action?  
-👉 [Click here to watch the demo](https://github.com/user-attachments/assets/171e1d36-e1f7-4005-82d4-db764c40ed5c)
+👉 [Click here to watch the demo]([https://github.com/user-attachments/assets/171e1d36-e1f7-4005-82d4-db764c40ed5c](https://github.com/user-attachments/assets/171e1d36-e1f7-4005-82d4-db764c40ed5c)
 
 ---
 
