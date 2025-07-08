@@ -1,7 +1,7 @@
 # 📌 Youssef Mahmoud - Flutter Developer Portfolio
 
 Welcome to my personal portfolio website!  
-This site showcases my **skills**, **projects**, and **experience** as a **Flutter developer** with a passion for building elegant and functional user interfaces.
+This site show cases my **skills**, **projects**, and **experience** as a **Flutter developer** with a passion for building elegant and functional user interfaces.
 
 ---
 
