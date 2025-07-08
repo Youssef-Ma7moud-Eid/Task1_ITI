@@ -1,377 +1,1131 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Youssef Mahmoud - Flutter Developer</title>
-<style>
-  * {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-  }
-
-  html {
-    scroll-behavior: smooth;
-  }
-
-  body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    color: #fff;
-    background-image: url("my photo.jpg");
-    background-size: cover;
-    background-position: top center;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    backdrop-filter: brightness(0.9);
-    min-height: 100vh;
-  }
-
-  nav {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 20px;
-    padding: 20px 40px;
-    background-color: rgba(0, 0, 0, 0.75);
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-    backdrop-filter: blur(10px);
-  }
-
-  nav a {
-    text-decoration: none;
-    color: #ccc;
-    font-weight: 600;
-    letter-spacing: 1px;
-    padding: 8px 12px;
-    border-radius: 4px;
-    transition: background-color 0.3s, color 0.3s;
-  }
-
-  nav a:hover,
-  nav a.active {
-    background-color: rgba(0, 170, 255, 0.2);
-    color: #00aaff;
-  }
-
-  /* Hero section styling */
-  .hero {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    text-align: center;
-    padding: 80px 20px;
-    min-height: 100vh;
-    background: rgba(0, 0, 0, 0.6);
-    backdrop-filter: blur(4px);
-  }
-
-  .hero h1 {
-    font-size: 3.5em;
-    font-weight: 700;
-    color: #fff;
-    margin-bottom: 10px;
-    animation: fadeIn 1.2s ease;
-  }
-
-  .hero h2 {
-    font-size: 2em;
-    font-weight: 400;
-    margin: 10px 0;
-    color: #00aaff;
-    animation: fadeIn 1.5s ease;
-  }
-
-  .highlight {
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Youssef Mahmoud | Flutter Developer</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #00aaff;
+            --secondary: #5100ff;
+            --dark: #121212;
+            --light: #f8f9fa;
+            --gray: #6c757d;
+            --dark-transparent: rgba(0, 0, 0, 0.85);
+            --glass: rgba(255, 255, 255, 0.05);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+            font-size: 16px;
+        }
+        
+        body {
+            font-family: 'Segoe UI', 'Roboto', sans-serif;
+            color: var(--light);
+            background-image: url("https://b4025539.smushcdn.com/4025539/wp-content/uploads/flutter-e1625644676239.png?lossy=2&strip=0&webp=1");
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(0, 10, 20, 0.9) 0%, rgba(0, 40, 80, 0.7) 100%);
+            z-index: -1;
+        }
+        
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            padding: 1.5rem 2rem;
+            background-color: var(--dark-transparent);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
+        }
+        
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            max-width: 1200px;
+        }
+        
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            text-decoration: none;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 1.5rem;
+        }
+        
+        .nav-links a {
+            color: var(--light);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+        }
+        
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: var(--primary);
+            background-color: rgba(0, 170, 255, 0.1);
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--light);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+        
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 6rem 2rem 2rem;
+            position: relative;
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            background: linear-gradient(90deg, var(--primary), #00ccff);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            animation: fadeIn 1s ease;
+        }
+        
+        .hero h2 {
+            font-size: 1.8rem;
+            font-weight: 400;
+            margin-bottom: 1.5rem;
+            color: var(--light);
+            opacity: 0.9;
+            animation: fadeIn 1.2s ease;
+        }
+        
+        .hero p {
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto 2rem;
+            color: var(--gray);
+            animation: fadeIn 1.4s ease;
+        }
+        
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            margin-top: 2rem;
+            animation: fadeIn 1.6s ease;
+        }
+        
+        .btn {
+            padding: 0.8rem 1.8rem;
+            border-radius: 50px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .btn-primary {
+            background-color: var(--primary);
+            color: var(--dark);
+            box-shadow: 0 4px 15px rgba(0, 170, 255, 0.4);
+        }
+        
+        .btn-primary:hover {
+            background-color: #0088cc;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(0, 170, 255, 0.6);
+        }
+        
+        .btn-secondary {
+            background-color: transparent;
+            color: var(--light);
+            border: 2px solid var(--primary);
+        }
+        
+        .btn-secondary:hover {
+            background-color: rgba(0, 170, 255, 0.1);
+            transform: translateY(-3px);
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            margin-top: 3rem;
+        }
+        
+        .social-links a {
+            color: var(--light);
+            font-size: 1.5rem;
+            transition: all 0.3s ease;
+        }
+        
+        .social-links a:hover {
+            color: var(--primary);
+            transform: translateY(-3px);
+        }
+        
+        /* Sections */
+        section {
+            padding: 5rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 3rem;
+            position: relative;
+            display: inline-block;
+            color: var(--primary);
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 60%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary), transparent);
+            border-radius: 2px;
+        }
+        
+        /* About Section */
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+        
+        .about-text p {
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+        
+        .about-image {
+            position: relative;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+        
+        .about-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: transform 0.5s ease;
+        }
+        
+        .about-image:hover img {
+            transform: scale(1.05);
+        }
+        
+        /* Skills Section */
+        .skills-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+            gap: 2rem;
+        }
+        
+        .skill-category {
+            background-color: var(--glass);
+            backdrop-filter: blur(10px);
+            border-radius: 10px;
+            padding: 2rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .skill-category:hover {
+            transform: translateY(-10px);
+        }
+        
+        .skill-category h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+        }
+        
+        .skill-category ul {
+            list-style-type: none;
+        }
+        
+        .skill-category li {
+            margin-bottom: 0.8rem;
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+        }
+        
+        .skill-category li::before {
+            content: '▹';
+            color: var(--primary);
+        }
+        
+        /* Projects Section */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+        
+        .project-card {
+            background-color: var(--glass);
+            backdrop-filter: blur(10px);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 170, 255, 0.2);
+        }
+        
+        
+        
+        .project-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .project-card:hover .project-image img {
+            transform: scale(1.1);
+        }
+        
+        .project-info {
+            padding: 1.5rem;
+        }
+        
+        .project-info h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.8rem;
+            color: var(--primary);
+        }
+        
+        .project-info p {
+            margin-bottom: 1.5rem;
+            color: var(--gray);
+        }
+        
+        .project-tech {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .tech-tag {
+            background-color: rgba(0, 170, 255, 0.1);
+            color: var(--primary);
+            padding: 0.3rem 0.8rem;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+        
+        .project-links {
+            display: flex;
+            gap: 1rem;
+        }
+        
+        .project-links a {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--light);
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+        
+        .project-links a:hover {
+            color: var(--primary);
+        }
+        
+        /* Timeline Section */
+        .timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .timeline::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 2px;
+            height: 100%;
+            background-color: var(--primary);
+        }
+        
+        .timeline-item {
+            position: relative;
+            margin-bottom: 3rem;
+            width: 100%;
+        }
+        
+        .timeline-item:nth-child(odd) {
+            padding-right: calc(50% + 2rem);
+            text-align: right;
+        }
+        
+        .timeline-item:nth-child(even) {
+            padding-left: calc(50% + 2rem);
+            text-align: left;
+        }
+        
+        .timeline-content {
+            background-color: var(--glass);
+            backdrop-filter: blur(10px);
+            padding: 1.5rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            position: relative;
+        }
+        
+        .timeline-content::before {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background-color: var(--primary);
+            border-radius: 50%;
+            top: 20px;
+        }
+        
+        .timeline-item:nth-child(odd) .timeline-content::before {
+            right: -40px;
+        }
+        
+        .timeline-item:nth-child(even) .timeline-content::before {
+            left: -40px;
+        }
+        
+        .timeline-date {
+            color: var(--primary);
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+        
+        .timeline-title {
+            font-size: 1.3rem;
+            margin-bottom: 0.8rem;
+        }
+        
+        /* Contact Section */
+        .contact-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+        }
+        
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+        
+        .contact-card {
+            background-color: var(--glass);
+            backdrop-filter: blur(10px);
+            padding: 1.5rem;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            transition: all 0.3s ease;
+        }
+        
+        .contact-card:hover {
+            transform: translateY(-5px);
+            background-color: rgba(0, 170, 255, 0.1);
+        }
+        
+        .contact-icon {
+            font-size: 1.5rem;
+            color: var(--primary);
+            min-width: 40px;
+            text-align: center;
+        }
+        
+        .contact-text h3 {
+            font-size: 1.2rem;
+            margin-bottom: 0.3rem;
+        }
+        
+        .contact-text a {
+            color: var(--light);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .contact-text a:hover {
+            color: var(--primary);
+        }
+        
+        .cv-button {
     display: inline-block;
-    background-color: #5100ff;
-    color: #fff;
-    padding: 8px 15px;
-    font-weight: bold;
-    margin-top: 15px;
-    border-radius: 8px;
-    box-shadow: 0 4px 10px rgba(81, 0, 255, 0.4);
-    font-size: 1.1em;
-    animation: fadeIn 2s ease;
-  }
-
-  /* Sections styling */
-  section {
-    padding: 60px 5%;
-    background-color: rgba(0, 0, 0, 0.75);
-    margin: 20px auto;
-    max-width: 1200px;
-    border-radius: 12px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-    animation: fadeIn 1.5s ease;
-  }
-
-  section h2 {
-    margin-bottom: 20px;
-    color: #00ccff;
-    font-size: 2em;
-    border-bottom: 2px solid #00ccff;
-    display: inline-block;
-    padding-bottom: 8px;
-  }
-
-  /* List styles */
-  ul {
-    list-style-type: square;
-    padding-left: 20px;
-    line-height: 1.6;
-  }
-
-  /* Mark element styling */
-  mark {
-    background-color: #00aaff;
-    color: #000;
-    padding: 2px 6px;
-    border-radius: 4px;
-  }
-
-  /* Form styling */
-  form {
-    display: flex;
-    flex-direction: column;
-  }
-
-  label {
-    margin-bottom: 6px;
-    font-weight: 600;
-  }
-
-  input, textarea {
-    width: 100%;
-    padding: 12px 14px;
-    margin-bottom: 15px;
-    border: none;
-    border-radius: 6px;
-    background-color: rgba(255,255,255,0.1);
-    color: #fff;
-    font-size: 1em;
-    transition: background-color 0.3s;
-  }
-
-  input:focus, textarea:focus {
-    outline: none;
-    background-color: rgba(255,255,255,0.2);
-  }
-
-  button {
-    padding: 14px;
-    border: none;
-    border-radius: 6px;
-    background-color: #00aaff;
-    color: #fff;
-    font-weight: 700;
-    cursor: pointer;
-    font-size: 1.1em;
-    transition: background-color 0.3s, transform 0.2s;
-  }
-
-  button:hover {
-    background-color: #0088cc;
-    transform: translateY(-2px);
-  }
-
-  /* Contact info styles */
- .contact-info {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-    margin-top: 20px;
-  }
-
-  .contact-info a {
-    color: #00ccff;
+    padding: 10px 20px;
+    border: 2px solid #e91e63; /* Pink border */
+    border-radius: 50px;        /* Circular style */
+    color: #e91e63;
     text-decoration: none;
     font-weight: 500;
-  }
+    transition: all 0.3s ease;
+    margin-left: 10px;
+}
 
-  .contact-info a:hover {
-    text-decoration: underline;
-    color: #00aaff;
-  }
-
-  /* Footer styling */
-  .footer {
-    text-align: center;
-    font-size: 14px;
-    color: #999;
-    padding: 30px 20px;
-    background-color: rgba(0, 0, 0, 0.6);
-    margin-top: 40px;
-  }
-
-  /* Animations */
-  @keyframes fadeIn {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
-
-  /* Responsive adjustments */
-  @media(max-width: 768px){
-    nav {
-      flex-direction: column;
-      align-items: center;
-      gap: 15px;
-    }
-    .hero h1 {
-      font-size: 2.5em;
-    }
-    .highlight {
-      font-size: 1em;
-      padding: 6px 12px;
-    }
-  }
-</style>
+.cv-button:hover {
+    background-color: #e91e63;
+    color: white;
+}
+        .contact-form {
+            background-color: var(--glass);
+            backdrop-filter: blur(10px);
+            padding: 2rem;
+            border-radius: 10px;
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 0.8rem 1rem;
+            background-color: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 5px;
+            color: var(--light);
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+        
+        .form-control:focus {
+            outline: none;
+            border-color: var(--primary);
+            background-color: rgba(0, 170, 255, 0.1);
+        }
+        
+        textarea.form-control {
+            min-height: 150px;
+            resize: vertical;
+        }
+        
+        .submit-btn {
+            background-color: var(--primary);
+            color: var(--dark);
+            border: none;
+            padding: 0.8rem 2rem;
+            border-radius: 50px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .submit-btn:hover {
+            background-color: #0088cc;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 170, 255, 0.4);
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--dark-transparent);
+            padding: 3rem 2rem;
+            text-align: center;
+        }
+        
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .footer-links a {
+            color: var(--light);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .footer-links a:hover {
+            color: var(--primary);
+        }
+        
+        .copyright {
+            color: var(--gray);
+            font-size: 0.9rem;
+        }
+        
+        /* Animations */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .about-image {
+                order: -1;
+                max-width: 500px;
+                margin: 0 auto;
+            }
+            
+            .timeline::before {
+                left: 30px;
+            }
+            
+            .timeline-item:nth-child(odd),
+            .timeline-item:nth-child(even) {
+                padding-left: 70px;
+                padding-right: 0;
+                text-align: left;
+            }
+            
+            .timeline-item:nth-child(odd) .timeline-content::before,
+            .timeline-item:nth-child(even) .timeline-content::before {
+                left: -40px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            html {
+                font-size: 14px;
+            }
+            
+            .nav-container {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            .nav-links {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero h2 {
+                font-size: 1.5rem;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .cta-buttons {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            .btn {
+                width: 100%;
+                justify-content: center;
+            }
+            
+            .contact-container {
+                grid-template-columns: 1fr;
+            }
+            .nav-links {
+                flex-wrap: nowrap;
+                gap: 4px;
+            }
+            .nav-links a{
+                font-size: 14px;
+                padding: 7px;
+            }
+            .hero h1 {
+              font-size: 25px;
+            }
+            .hero h2{
+              font-size: 14px;
+            }
+            .hero p{
+              font-size: 12px;
+            }
+            .skill-category h3{
+              font-size: 1.1rem;
+            }
+        }
+    </style>
 </head>
 <body>
+    <!-- Navigation -->
+    <div style="height: 50px; width: 100%;"></div>
+    <nav>
+        <div class="nav-container">
+            <a href="#" class="logo">Youssef</a>
+            <div class="nav-links">
+                <a href="#about" class="active">About</a>
+                <a href="#skills">Skills</a>
+                <a href="#projects">Projects</a>
+                <a href="#timeline">Timeline</a>
+                <a href="#contact">Contact</a>
+               <a href="Youssef-Mahmoud-Flutter-developer.pdf" download class="cv-button">
+    Download My CV
+</a>
+            </div>
+        </div>
+    </nav>
 
-<!-- Navigation -->
-<nav>
-  <a href="#about" class="active">About</a>
-  <a href="#skills">Skills</a>
-  <a href="#projects">Projects</a>
-  <a href="#resume">Resume</a>
-  <a href="#timeline">Timeline</a>
-  <a href="#achievements">Achievements</a>
-  <a href="#languages">Languages</a>
-  <a href="#contact">Contact</a>
-</nav>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Youssef Mahmoud Eid</h1>
+            <h2>Flutter Developer & Computer Science Student</h2>
+            <p>I build beautiful, performant mobile applications with Flutter that deliver exceptional user experiences.</p>
+            <div class="cta-buttons">
+                <a href="#projects" class="btn btn-primary">
+                    <i class="fas fa-code"></i> View My Work
+                </a>
+                <a href="#contact" class="btn btn-secondary">
+                    <i class="fas fa-paper-plane"></i> Contact Me
+                </a>
+            </div>
+            <div class="social-links">
+                <a href="https://github.com/Youssef-Ma7moud-Eid" target="_blank" aria-label="GitHub">
+                    <i class="fab fa-github"></i>
+                </a>
+                <a href="https://www.linkedin.com/in/youssef-mahmoud-eid-attia-067433272/" target="_blank" aria-label="LinkedIn">
+                    <i class="fab fa-linkedin-in"></i>
+                </a>
+                <a href="mailto:youssef.mahmoud51098@gmail.com" aria-label="Email">
+                    <i class="fas fa-envelope"></i>
+                </a>
+            </div>
+        </div>
+    </section>
 
-<!-- Hero Section -->
-<section class="hero">
-  <h1>I'm Youssef Mahmoud Eid</h1>
-  <h2>Flutter Developer</h2>
-  <div class="highlight">Professional Mobile App Creator</div>
-  <p>I’m Youssef Mahmoud, a dedicated Flutter developer and Computer Science undergraduate. I build responsive, user-centric mobile apps and thrive on solving problems with clean, efficient code.</p>
-</section>
+    <!-- About Section -->
+    <section id="about">
+        <h2 class="section-title">About Me</h2>
+        <div class="about-content">
+            <div class="about-text">
+                <p>
+                    I'm a passionate Flutter developer currently pursuing my degree in Computer Science at Fayoum University. 
+                    My journey in programming started with a curiosity for problem-solving and has evolved into a love for 
+                    creating mobile applications that make a difference.
+                </p>
+                <p>
+                    I've had the privilege of competing in the Egyptian Collegiate Programming Contest (ECPC) in both 2023 
+                    and 2024, experiences that have sharpened my algorithmic thinking and teamwork skills under pressure.
+                </p>
+                <p>
+                    When I'm not coding, you can find me contributing to open-source projects, learning new technologies, 
+                    or participating in coding challenges to continuously improve my skills.
+                </p>
+                <div class="skills-highlight">
+                    <h3>Technical Focus:</h3>
+                    <ul>
+                        <li>Cross-platform mobile development with Flutter</li>
+                        <li>Clean architecture and maintainable code</li>
+                        <li>Performance optimization</li>
+                        <li>User experience design</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="about-image">
+                <!-- Replace with your actual image -->
+                <img src="my photo.jpg" alt="Youssef Mahmoud">
+            </div>
+        </div>
+    </section>
 
-<!-- About Me -->
-<section id="about">
-  <h2>About Me</h2>
-  <p>I’m currently studying at Fayoum University and actively contributing to open-source Flutter projects. I competed in ECPC (Egyptian Collegiate Programming Contest) in 2023 and 2024, sharpening my algorithmic and team-based problem-solving skills.</p>
-</section>
+    <!-- Skills Section -->
+    <section id="skills">
+        <h2 class="section-title">My Skills</h2>
+        <div class="skills-container">
+            <div class="skill-category">
+                <h3><i class="fas fa-code"></i> Programming Languages</h3>
+                <ul>
+                    <li>Dart (Advanced)</li>
+                    <li>C++ (Intermediate)</li>
+                    <li>C (Intermediate)</li>
+                    <li>Python (Intermediate)</li>
+                </ul>
+            </div>
+            <div class="skill-category">
+                <h3><i class="fas fa-mobile-alt"></i> Flutter Development</h3>
+                <ul>
+                    <li>State Management (Bloc, Cubit)</li>
+                    <li>Firebase Integration</li>
+                    <li>RESTful APIs</li>
+                    <li>Local Storage (Hive, Shared Preferences)</li>
+                    <li>Responsive & Adaptive UI</li>
+                </ul>
+            </div>
+            <div class="skill-category">
+                <h3><i class="fas fa-laptop-code"></i> Software Engineering</h3>
+                <ul>
+                    <li>Object-Oriented Programming</li>
+                    <li>Data Structures & Algorithms</li>
+                    <li>MVVM Architecture</li>
+                    <li>Clean Architecture</li>
+                    <li>Git Version Control</li>
+                </ul>
+            </div>
+            <div class="skill-category">
+                <h3><i class="fas fa-globe"></i> Languages</h3>
+                <ul>
+                    <li>Arabic (Native)</li>
+                    <li>English (Intermediate)</li>
+                </ul>
+            </div>
+        </div>
+    </section>
 
-<!-- Skills -->
-<section id="skills">
-  <h2>Skills</h2>
-  <ul>
-    <li>Dart, C, C++, Python</li>
-    <li>Object-Oriented Programming, Data Structures</li>
-    <li>Flutter Framework</li>
-    <li>RESTful APIs</li>
-    <li>Firebase Integration</li>
-    <li>Local Storage (Hive, Shared Preferences)</li>
-    <li>MVVM & Clean Architecture</li>
-    <li>State Management (Bloc, Cubit)</li>
-    <li>Git & GitHub</li>
-    <li>Responsive and Adaptive UI</li>
-  </ul>
-</section>
+    <!-- Projects Section -->
+    <section id="projects">
+        <h2 class="section-title">Featured Projects</h2>
+        <div class="projects-grid">
+            <div class="project-card">
+                
+                <div class="project-info">
+                    <h3>Book App</h3>
+                    <p>A comprehensive Flutter application integrated with Google Books API for browsing and discovering books.</p>
+                    <div class="project-tech">
+                        <span class="tech-tag">Flutter</span>
+                        <span class="tech-tag">Bloc</span>
+                        <span class="tech-tag">Firebase</span>
+                        <span class="tech-tag">Google Books API</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://github.com/Youssef-Ma7moud-Eid/Book_App" target="_blank">
+                            <i class="fab fa-github"></i> View Code
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="project-card">
+                <div class="project-info">
+                    <h3>Food E-Commerce App</h3>
+                    <p>A complete food delivery application with authentication, real-time ordering, and payment functionality.</p>
+                    <div class="project-tech">
+                        <span class="tech-tag">Flutter</span>
+                        <span class="tech-tag">Firebase</span>
+                        <span class="tech-tag">State Management</span>
+                        <span class="tech-tag">E-Commerce</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://github.com/Youssef-Ma7moud-Eid/Food_app" target="_blank">
+                            <i class="fab fa-github"></i> View Code
+                        </a>
+                    </div>
+                </div>
+            </div>
+             <div class="project-card">
+                
+                <div class="project-info">
+                    <h3> Adaptive & Responsive Dashboard Admin</h3>
+                    <p>This app is designed to deliver a seamless and consistent user experience across mobile, tablet, and desktop devices, with a modern, adaptive UI.</p>
+                    <div class="project-tech">
+                        <span class="tech-tag">Layout Builder</span>
+                        <span class="tech-tag">Media Query</span>
+                        <span class="tech-tag">Responsive Technique</span>
+                        <span class="tech-tag">Modular & Scalable Architecture</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://github.com/Youssef-Ma7moud-Eid/Responsive_Dashboard" target="_blank">
+                            <i class="fab fa-github"></i> View Code
+                        </a>
+                    </div>
+                </div>
+            </div>  r
+            
+        </div>
+    </section>
 
-<!-- Projects -->
-<section id="projects">
-  <h2>Projects</h2>
-  <h3>📘 Book App</h3>
-  <ul>
-    <li>A feature-rich Flutter app integrated with Google Books API</li>
-    <li>MVVM Architecture with Bloc, GetIt</li>
-    <li>Firebase Auth, onboarding, dark/light mode, smart search</li>
-  </ul>
-  <p><a href="https://github.com/Youssef-Ma7moud-Eid/Book_App" target="_blank">View Book App on GitHub</a></p>
+    <!-- Timeline Section -->
+    <section id="timeline">
+        <h2 class="section-title">My Journey</h2>
+        <div class="timeline">
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <div class="timeline-date">2025</div>
+                    <h3 class="timeline-title">Training – Information Technology Institute (ITI)</h3>
+                    <p>👨‍🎓 Completed intensive mobile application development training at ITI, gaining hands-on experience with Flutter, Dart, Firebase, REST APIs, Git, and UI/UX design. Worked on multiple real-world projects in a collaborative environment.</p>
+                </div>
+            </div>
+             <div class="timeline-item">
+                <div class="timeline-content">
+                    <div class="timeline-date">2025</div>
+                    <h3 class="timeline-title">Book_App</h3>
+                    <p>Developed the Book App with Google Books API integration, implementing MVVM architecture with Bloc state management.</p>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <div class="timeline-date">2024</div>
+                    <h3 class="timeline-title">ECPC Competition & Food App</h3>
+                    <p>Participated in the Egyptian Collegiate Programming Contest (ECPC) for the second time. Completed development of the Food E-Commerce App with Firebase integration.</p>
+                </div>
+            </div>
+          
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <div class="timeline-date">2023</div>
+                    <h3 class="timeline-title">First ECPC </h3>
+                    <p>Participated in the Egyptian Collegiate Programming Contest (ECPC) for the First time.</p>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <div class="timeline-date">2022</div>
+                    <h3 class="timeline-title">Started Computer Science Degree</h3>
+                    <p>Began my formal education in Computer Science at Fayoum University, laying the foundation for my programming journey.</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-  <h3>🍔 Food E-Commerce App</h3>
-  <ul>
-    <li>Splash, onboarding, and Firebase Auth (login/signup/reset)</li>
-    <li>Real-time meal browsing and favorites</li>
-    <li>Cart management with basic payment logic</li>
-  </ul>
-  <p><a href="https://github.com/Youssef-Ma7moud-Eid/Food_app" target="_blank">View Food App on GitHub</a></p>
-</section>
+    <!-- Contact Section -->
+    <section id="contact">
+        <h2 class="section-title">Get In Touch</h2>
+        <div class="contact-container">
+            <div class="contact-info">
+               <div class="contact-card">
+                    <div class="contact-icon">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <div class="contact-text">
+                        <h3>Phone</h3>
+  <a href="tel:+201000799459" aria-label="Phone">
+        <p> 01000799459</p>
+    </a>                    </div>
+                </div>
+                <div class="contact-card">
+                    <div class="contact-icon">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <div class="contact-text">
+                        <h3>Email</h3>
+                        <a href="mailto:youssef.mahmoud51098@gmail.com">youssef.mahmoud51098@gmail.com</a>
+                    </div>
+                </div>
+                <div class="contact-card">
+                    <div class="contact-icon">
+                        <i class="fab fa-linkedin-in"></i>
+                    </div>
+                    <div class="contact-text">
+                        <h3>LinkedIn</h3>
+                        <a href="https://www.linkedin.com/in/youssef-mahmoud-eid-attia-067433272/" target="_blank">Youssef Mahmoud Eid Attia</a>
+                    </div>
+                </div>
+                <div class="contact-card">
+                    <div class="contact-icon">
+                        <i class="fab fa-github"></i>
+                    </div>
+                    <div class="contact-text">
+                        <h3>GitHub</h3>
+                        <a href="https://github.com/Youssef-Ma7moud-Eid" target="_blank">Youssef-Ma7moud-Eid</a>
+                    </div>
+                </div>
+                <div class="contact-card">
+                    <div class="contact-icon">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    <div class="contact-text">
+                        <h3>Location</h3>
+                        <p>Giza, Egypt</p>
+                    </div>
+                </div>
+            </div>
+            <form class="contact-form" action="mailto:youssef.mahmoud51098@gmail.com" method="POST" enctype="text/plain">
+                <div class="form-group">
+                    <label for="name">Your Name</label>
+                    <input type="text" id="name" name="name" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Your Email</label>
+                    <input type="email" id="email" name="email" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="subject">Subject</label>
+                    <input type="text" id="subject" name="subject" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="message">Message</label>
+                    <textarea id="message" name="message" class="form-control" required></textarea>
+                </div>
+                <button type="submit" class="submit-btn">
+                    <i class="fas fa-paper-plane"></i> Send Message
+                </button>
+            </form>
+        </div>
+    </section>
 
-<!-- Resume -->
-<section id="resume">
-  <h2>📄 Resume</h2>
-  <p><a href="Youssef-Mahmoud-Flutter-developer.pdf" download><button>Download My CV</button></a></p>
-</section>
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-links">
+                <a href="#about">About</a>
+                <a href="#skills">Skills</a>
+                <a href="#projects">Projects</a>
+                <a href="#contact">Contact</a>
+            </div>
+            <div class="social-links">
+                <a href="https://github.com/Youssef-Ma7moud-Eid" target="_blank" aria-label="GitHub">
+                    <i class="fab fa-github"></i>
+                </a>
+                <a href="https://www.linkedin.com/in/youssef-mahmoud-eid-attia-067433272/" target="_blank" aria-label="LinkedIn">
+                    <i class="fab fa-linkedin-in"></i>
+                </a>
+                <a href="mailto:youssef.mahmoud51098@gmail.com" aria-label="Email">
+                    <i class="fas fa-envelope"></i>
+                </a>
+            </div>
+            <p class="copyright">© 2025 Youssef Mahmoud Eid. All rights reserved.</p>
+        </div>
+    </footer>
 
-<!-- Timeline -->
-<section id="timeline">
-  <h2>📅 Timeline</h2>
-  <ul>
-    <li><strong>2025</strong>: Released responsive Flutter dashboard</li>
-    <li><strong>2024</strong>: ECPC contest, completed Food App</li>
-    <li><strong>2022</strong>: Started Computer Science at Fayoum University</li>
-  </ul>
-</section>
-
-<!-- Achievements -->
-<section id="achievements">
-  <h2>🏆 Achievements</h2>
-  <ul>
-    <li>Top 5 in University Programming Contest</li>
-    <li>Published multiple open-source Flutter apps</li>
-    <li>Participated in ECPC 2023 and 2024</li>
-  </ul>
-</section>
-
-<!-- Languages -->
-<section id="languages">
-  <h2>🌍 Languages</h2>
-  <ul>
-    <li>Arabic – Native</li>
-    <li>English – Intermediate</li>
-  </ul>
-</section>
-
-<!-- Contact -->
-<section id="contact">
-  <h2 style="text-align: center; font-size: 2.5em; margin-bottom: 40px; text-shadow: 0 0 10px #00ccff;">
-    📬 Get in Touch
-  </h2>
-  <div style="display: flex; flex-wrap: wrap; gap: 30px; justify-content: center; align-items: flex-start;">
-    <!-- Contact Form -->
-    <form action="mailto:ym1977@fayoum.edu.eg" method="POST" enctype="text/plain"
-          style="flex: 1 1 300px; max-width: 500px; background-color: rgba(0, 0, 0, 0.6); padding: 30px; border-radius: 12px; box-shadow: 0 0 20px rgba(0, 170, 255, 0.2);">
-      <label for="name">Your Name:</label>
-      <input type="text" id="name" name="name" placeholder="Enter your name" required />
-
-      <label for="email">Your Email:</label>
-      <input type="email" id="email" name="email" placeholder="Enter your email" required />
-
-      <label for="message">Message:</label>
-      <textarea id="message" name="message" rows="5" placeholder="Write your message..." required></textarea>
-
-      <button type="submit">📨 Send Message</button>
-    </form>
-    <!-- Contact Info -->
-    <div style="flex: 1 1 300px; max-width: 400px; background-color: rgba(0, 0, 0, 0.6); padding: 30px; border-radius: 12px; box-shadow: 0 0 20px rgba(0, 170, 255, 0.2); display: flex; flex-direction: column; gap:15px;">
-      <p><strong>📧 Email:</strong><br>
-        <a href="mailto:ym1977@fayoum.edu.eg" style="color: #00ccff;">ym1977@fayoum.edu.eg</a>
-      </p>
-      <p><strong>💼 LinkedIn:</strong><br>
-        <a href="https://www.linkedin.com/in/youssef-mahmoud-eid-attia-067433272/" target="_blank" style="color: #00ccff;">
-          linkedin.com/in/youssef-mahmoud-eid-attia
-        </a>
-      </p>
-      <p><strong>🐱 GitHub:</strong><br>
-        <a href="https://github.com/Youssef-Ma7moud-Eid" target="_blank" style="color: #00ccff;">
-          github.com/Youssef-Ma7moud-Eid
-        </a>
-      </p>
-    </div>
-  </div>
-</section>
-
-<!-- Footer -->
-<div class="footer">
-  PORTFOLIO 2025 &copy; Youssef Mahmoud
-</div>
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+                
+                // Update active link
+                document.querySelectorAll('.nav-links a').forEach(link => {
+                    link.classList.remove('active');
+                });
+                this.classList.add('active');
+            });
+        });
+        
+        // Change navigation style on scroll
+        window.addEventListener('scroll', function() {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 50) {
+                nav.style.padding = '1rem 2rem';
+                nav.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.3)';
+            } else {
+                nav.style.padding = '1.5rem 2rem';
+                nav.style.boxShadow = 'none';
+            }
+        });
+        
+        // Animation on scroll
+        const animateOnScroll = function() {
+            const elements = document.querySelectorAll('.skill-category, .project-card, .timeline-item');
+            
+            elements.forEach(element => {
+                const elementPosition = element.getBoundingClientRect().top;
+                const screenPosition = window.innerHeight / 1.3;
+                
+                if (elementPosition < screenPosition) {
+                    element.style.opacity = '1';
+                    element.style.transform = 'translateY(0)';
+                }
+            });
+        };
+        
+        // Initialize elements with opacity 0 for animation
+        document.querySelectorAll('.skill-category, .project-card, .timeline-item').forEach(element => {
+            element.style.opacity = '0';
+            element.style.transform = 'translateY(20px)';
+            element.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+        });
+        
+        window.addEventListener('scroll', animateOnScroll);
+        window.addEventListener('load', animateOnScroll);
+    </script>
 </body>
 </html>
