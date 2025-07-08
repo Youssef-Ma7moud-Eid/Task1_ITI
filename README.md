@@ -42,7 +42,7 @@ Here’s a quick look at some of the UI screens from the project:
 
 ---
 
-> 💬 **Built With:** Flutter, HTML, CSS ,JavaScript 
+> 💬 **Built With:** HTML, CSS ,JavaScript 
 > ✨ **Designed To Be:** Responsive, Clean, and Professional
 
 ---
