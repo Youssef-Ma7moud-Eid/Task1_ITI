@@ -1,0 +1,71 @@
+## Problem 1
+#include <bits/stdc++.h>
+#include <unordered_set>
+#define  ll long long
+# define joo ios_base::sync_with_stdio(false), cin.tie(nullptr), cout.tie(nullptr);
+using namespace std;
+
+
+
+int main() {
+    joo;
+    int n;
+    cout << "Enter an integer ";
+    cin >> n;
+    if (n > 5)
+    {
+        cout << "Greater  than 5";
+    }
+    else if (n < 5)
+    {
+        cout << "Less than 5";
+    }
+    else {
+        cout << "Equal 5";
+    }
+    cout << "\n";
+
+   
+          return 0;
+    }
+  
+    --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+## Problem 2
+#include <bits/stdc++.h>
+#include <unordered_set>
+#define  ll long long
+# define joo ios_base::sync_with_stdio(false), cin.tie(nullptr), cout.tie(nullptr);
+using namespace std;
+
+
+
+int main() {
+    joo;
+  
+
+    int degree;
+    cout << "Enter the degree ";
+    cin >> degree;
+
+    if (degree >=85)
+    {
+        cout << "Excellent";
+    }
+    else if (degree >= 70)
+    {
+        cout << "Very Good";
+    }
+    else if(degree >=50) {
+        cout << "Good";
+    }
+    else {
+        cout << "Fail";
+    }
+    cout << endl;
+          return 0;
+    }
+  
+    
+
+
+
