@@ -1,0 +1,48 @@
+#include <bits/stdc++.h>
+#include <unordered_set>
+#define  ll long long
+# define joo ios_base::sync_with_stdio(false), cin.tie(nullptr), cout.tie(nullptr);
+using namespace std;
+
+
+int main()
+{
+    int n;
+    cin >> n;
+    string s1;
+    if (n % 2 == 0)
+    {
+        cout << "NO";
+    }
+    else {
+        while (n)
+        {
+            if (n % 2 == 0)
+            {
+                s1.push_back('0');
+            }
+            else {
+                s1.push_back('1');
+            }
+            n/=2;
+        }
+        string s2 = s1;
+        reverse(s1.begin(), s1.end());
+        if (s1 == s2)
+        {
+            cout << "YES";
+        }
+        else {
+
+            cout << "NO";
+
+        }
+    }
+
+    return 0;
+}
+
+
+
+   
+

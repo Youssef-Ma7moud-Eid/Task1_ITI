@@ -1,0 +1,39 @@
+#include <bits/stdc++.h>
+#include <unordered_set>
+#define  ll long long
+# define joo ios_base::sync_with_stdio(false), cin.tie(nullptr), cout.tie(nullptr);
+using namespace std;
+
+
+int main()
+{
+    int n, m;
+    cin >> n >> m;
+    long long sum = 0;
+    if (m <= 1)
+    {
+        cout << 0;
+        return 0;
+    }
+    for (int i = 2; i <= m; i += 2)
+    {
+        long long sum1 = 1;
+        for (int j = 1; j <= i; j++)
+        {
+            sum1*=n;
+        }
+       
+        sum += sum1;
+    }
+
+
+
+    cout << sum;
+
+    return 0;
+}
+
+
+
+   
+

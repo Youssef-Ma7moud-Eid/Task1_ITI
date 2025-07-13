@@ -1,0 +1,22 @@
+#include<iostream>
+using namespace std;
+int sum(int a , int b)
+{
+	int sum;
+	
+	cin >> a >> b;
+	sum = a + b;
+	return a+b ;
+
+}
+
+
+int main()
+
+{
+	int x = 0, y = 0;
+	cout << sum(x, y) << endl;
+
+
+	return 0;
+}

@@ -1,0 +1,17 @@
+#include<iostream>
+#include<cmath>
+using namespace std;
+int main()
+{
+	double n, m;
+	cin >> n >> m;
+	double k = n / m;
+	cout << "floor " << n << " / " << m << " = " << floor(k) << endl;
+	cout << "ceil " << n << " / " << m << " = " << ceil(k) << endl;
+	cout << "round " << n << " / " << m << " = " << round(k) << endl;
+
+
+
+	return 0;
+	
+}
