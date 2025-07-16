@@ -1,0 +1,64 @@
+--------------- Problem 1: Split and Join Characters---------
+void split(String word) {
+  String result = word
+      .split('')
+      .map((c) => c.toUpperCase())
+      .join(',');
+  print(result);
+}
+
+void main() {
+  split('Youssef');
+}
+------------ Problem 2: Count Vowels in a String----------
+void main() {
+  String vowels = "aeiou";
+  String word = 'Youssef';
+  int count = word.split('').where((char) => vowels.contains(char)).length;
+
+  print(count);
+}
+--------  Problem 3:Update Map Values-----------------
+void main() {
+  Map<String, int?> prices = {
+    'apple': 20,
+    'banana': null,
+    'cherry': 5
+  };
+
+  prices.forEach((key, value) {
+    prices[key] = (value ?? 0) + 10;
+  });
+
+  print(prices);
+}
+---------------- Problem 4: Simulate API Call-------------------------------
+Future<String> fetchUsername() async {
+  await Future.delayed(Duration(seconds: 2));
+  return "Youssef";
+}
+
+void main() async {
+  String name = await fetchUsername();
+  print("Welcome, $name"); // Output after 2 seconds: Welcome, Youssef
+}
+
+------------------ Problem 5:Unique Characters--------------------------
+int UniqueChar(String word) {
+  Set<String> unique= word.split('').toSet();
+  return unique.length;
+}
+
+void main() {
+  print(UniqueChar('Youssef'));
+}
+ -----------------Problem 6: Product of Even Numbers--------------------------
+void main() {
+  List<int> numbers = [2, 3, 4,8];
+
+  int product = numbers
+      .where((n) => n % 2 == 0)
+      .reduce((a, b) => a * b);
+
+  print(product); 
+}
