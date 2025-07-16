@@ -1,0 +1,44 @@
+## ================== Problem 1 Using ? operator ==================
+ ? is used to make a variable type nullable, meaning it can contain null.
+
+## ================== Problem 2  ==================
+void main() {
+  late String address;
+  address = "US";
+  print(address);
+}
+
+
+## ================== Problem 3  ==================
+void main() {
+  int? nullable = null;
+  print(nullable);
+}
+
+## ================== Problem 4  ==================
+void main() {
+  int? age = null;
+
+  print('Age is: $age');
+}
+## ================== Problem 5  ==================
+
+
+int Check(int? param) {
+  return param ?? 0;
+}
+
+void main() {
+  print(Check(null));
+  print(Check(4));
+}
+## ================== Problem 6  ==================
+import 'dart:math';
+int? generateRandom() {
+  return Random().nextBool() ? 100 : null;
+}
+
+void main() {
+  int status = generateRandom() ?? 0;
+  print(status);
+}
