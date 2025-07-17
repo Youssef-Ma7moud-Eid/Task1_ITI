@@ -1,16 +1,15 @@
 // ---------------------
 // Abstract User Class
 // ---------------------
+
 abstract class User {
   late int _id;
   String name;
   String email;
 
   User({required this.name, required this.email});
-  int GetId() => this._id;
-  void SetId(int id) {
-    this._id = id;
-  }
+  int GetId();
+  void SetId(int id);
 
   void login();
   void logout();
@@ -80,7 +79,7 @@ class Instructor extends User {
 
   void createCourse(Course course) {
     createdCourses.add(course);
-    print("${name} created a new course: ${course.title}");
+    print("${super.name} created a new course: ${course.title}");
   }
 }
 
@@ -88,13 +87,16 @@ class Instructor extends User {
 // Course Class
 // ---------------------
 class Course {
+  static int course_num = 0;
   String title;
   String description;
   Instructor instructor;
   List<Content> contentList = [];
   List<RatingReview> reviews = [];
 
-  Course(this.title, this.description, this.instructor);
+  Course(this.title, this.description, this.instructor) {
+    course_num++;
+  }
   void addNewReview(RatingReview newreview) => reviews.add(newreview);
   void addContent(Content content) => contentList.add(content);
   void archive() => print("Course archived");
@@ -139,19 +141,7 @@ class Quiz extends Content {
   void display() => print("Showing quiz: $title");
 }
 
-// ---------------------
-// Enrollment Class
-// ---------------------
-class Enrollment {
-  Student student;
-  Course course;
-  double progress = 0;
 
-  Enrollment(this.student, this.course);
-
-  void updateProgress(double newProgress) => progress = newProgress;
-  void markComplete() => print("Course completed");
-}
 
 // ---------------------
 // Payment Interface
@@ -186,7 +176,19 @@ class SMSNotification implements Notification {
   @override
   void send(String message) => print("SMS: $message");
 }
+// ---------------------
+// Enrollment Class
+// ---------------------
+class Enrollment {
+  Student student;
+  Course course;
+  double progress = 0;
 
+  Enrollment(this.student, this.course);
+
+  void updateProgress(double newProgress) => progress = newProgress;
+  void markComplete() => print("Course completed");
+}
 // ---------------------
 // RatingReview Class
 // ---------------------
@@ -206,11 +208,16 @@ void main() {
   student1.SetId(1);
 
   Instructor instructor1 = Instructor(
-      name: 'Amgad', email: 'Amgad@gmail.com'); // new instructor detail
+      name: 'Eng:Amgad', email: 'Amgad@gmail.com');
+       // new instructor detail
   instructor1.SetId(123);
 
   Course course1 = Course('Flutter', 'Mobile Application',
       instructor1); // new course detail by owned instructor
+ Course course2 = Course('Flutter', 'Mobile Application',
+      instructor1);
+  print("course_num  ${Course.course_num}");
+   // print course num
 
   PDF content_course1 =
       PDF('Dart & Flutter track', 20); // content of course to added
@@ -241,11 +248,11 @@ void main() {
   course1
       .addNewReview(course1_rating); // add this review in course1 reviews list
 
-  print(student1.enrolledCourses.first
-      .title); // first course  title enrolled by this student
+  print(
+      "Course name : ${student1.enrolledCourses.first.title}"); // first course  title enrolled by this student
 
-  print(student1.enrolledCourses.first
-      .description); // first course  desciription enrolled by this student
+  print(
+      "course desciription:${student1.enrolledCourses.first.description}"); // first course  desciription enrolled by this student
 
-  print(student1.GetId());
+  print("Student Id ${student1.GetId()}");
 }
